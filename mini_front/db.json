@@ -1,0 +1,44 @@
+{
+  "boards": [
+    {
+      "id": 1,
+      "category": "영어",
+      "name": "토익스터디",
+      "content": "스터디해요",
+      "recruitState": "모집중",
+      "memberNum": 4,
+      "currentMemberNum": 2,
+      "createdAt": "2022-02-11 17:00"
+    },
+    {
+      "id": 2,
+      "category": "IT",
+      "name": "정처기스터디",
+      "content": "스터디해요",
+      "recruitState": "모집완료",
+      "memberNum": 6,
+      "currentMemberNum": 6,
+      "createdAt": "2022-02-11 18:00"
+    },
+    {
+      "id": 3,
+      "category": "요리",
+      "name": "요리스터디",
+      "content": "스터디해요",
+      "recruitState": "모집중",
+      "memberNum": 10,
+      "currentMemberNum": 2,
+      "createdAt": "2022-02-10 17:00"
+    }
+  ],
+  "login": [
+    {
+      "result": true
+    }
+  ],
+  "profile": [
+    {
+      "name": "typicode"
+    }
+  ]
+}
