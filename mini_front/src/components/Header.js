@@ -1,25 +1,39 @@
-import React from 'react';
+import React from "react";
 
-import { Grid, Button } from '../elements';
+import { useDispatch } from "react-redux";
+import { actionCreators as userActions } from "../redux/modules/user";
+
+import {logoutM} from "../redux/modules/user";
+
 import { history } from "../redux/configureStore";
 
-const Header = () => {
+import {Nav, Navbar, Container } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
+const Header = () => {   
+  const dispatch = useDispatch();
 
-    // const is_login = useSelector((state) => state.user.is_login);
+    const logout = () => {
+    console.log("로그아웃 요청을 dispatch 했습니다.");
 
+    dispatch(logoutM());
+    }
     
         return (
             <>  
-                <Grid is_flex width={"1000px"} padding="4px 16px" >
-                    <Grid>
-                        <h1>네가 스터디</h1>
-                    </Grid>
-                    <Grid is_flex  width={"210px"} justify_content={"space-between"}>
-                        <Button  width='100px' text="회원가입"  _onClick={() => {history.push('/signup')}}></Button>
-                        <Button  width='100px' text="로그인" _onClick={() => {history.push('/login')}}></Button>
-                    </Grid>
-                </Grid>   
+            <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+            <Container>
+                <Navbar.Brand href="/">네가스터디</Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav>
+                    <Nav.Link href="/signup">회원가입</Nav.Link>
+                    <Nav.Link eventKey={2} href="/login">로그인</Nav.Link>
+                    <Nav onClick={logout}>로그아웃</Nav>
+                </Nav>
+                </Navbar.Collapse>
+            </Container>
+            </Navbar>
             </>
         
         );
