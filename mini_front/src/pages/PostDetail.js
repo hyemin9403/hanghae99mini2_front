@@ -1,9 +1,11 @@
 import React from "react";
+import { Container, Form } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Grid from "../elements/Grid";
 
 const PostDetail = () => {
   return (
-    <Grid>
+    <Container style={{ width: "900px" }}>
       <div
         style={{
           display: "flex",
@@ -13,23 +15,56 @@ const PostDetail = () => {
           alignItems: "center",
         }}
       >
-        <div>모집완료</div>
-        <div>2 / 5명</div>
+        <div
+          style={{
+            width: "100px",
+            height: "30px",
+            background: "green",
+            borderRadius: "10px",
+            color: "white",
+            textAlign: "center",
+            fontSize: "20px",
+          }}
+        >
+          모집완료
+        </div>
+        <div style={{ marginLeft: "20px", fontSize: "20px" }}>2 / 5 명</div>
       </div>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", marginBottom: "30px" }}>
         <h2>Java</h2>
       </div>
-      <h1 style={{ display: "flex" }}>같이 자바 공부해봐요</h1>
-      <div style={{ display: "flex", flexDirection: "row" }}>
-        <p style={{ fontWeight: "bold", marginRight: "20px" }}>nikemania1987</p>
-        <p>2022년 02월 12일 22시 10분</p>
-        <button style={{ float: "right" }}>참여하기</button>
+      <h1 style={{ display: "flex", marginBottom: "30px" }}>
+        같이 자바 공부해봐요
+      </h1>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-evenly",
+          alignItems: "center",
+          marginBottom: "50px",
+        }}
+      >
+        <div style={{ display: "flex" }}>
+          <p
+            style={{
+              fontWeight: "bold",
+              marginBottom: "0px",
+            }}
+          >
+            nikemania1987
+          </p>
+          <p style={{ margin: "0px 0px 0px 10px" }}>
+            2022년 02월 12일 22시 10분
+          </p>
+        </div>
+        <button style={{ marginLeft: "auto" }}>참여하기</button>
       </div>
-      <hr />
-      <div>
-        <p>스터디 주제 : 자바</p>
-      </div>
-    </Grid>
+      <hr style={{ marginBottom: "50px" }} />
+      <div
+        style={{ width: "100%", height: "800px", border: "1px solid black" }}
+      />
+    </Container>
   );
 };
 

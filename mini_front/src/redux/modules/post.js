@@ -50,21 +50,6 @@ const initialState = {
 
   };
 
-const getBtn = () => async (dispatch, getState) => {
-    console.log("axios get 요청을 위한 getBtn 미들웨어에서 받았습니다");
-
-    axios
-    .get("http://localhost:3003/boards")
-    .then((res) => {
-      console.log(res.data);
-      console.log(res.data[0].name)
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-
-}
-
 export default handleActions(
     {
     [LOAD_POST]: (state = initialState, action = {}) => {
@@ -78,6 +63,6 @@ export default handleActions(
 },initialPost);
 
 
-const actionCreators = {getBtn, loadPostM}
+const actionCreators = {loadPostM}
 
 export {actionCreators};
