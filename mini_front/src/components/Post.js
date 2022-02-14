@@ -1,24 +1,12 @@
 import React from "react";
-import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { actionCreators as postActions } from "../redux/modules/post";
-import {
-  Button,
-  Alert,
-  Breadcrumb,
-  Card,
-  Form,
-  Container,
-  Row,
-  Col,
-} from "react-bootstrap";
+import {Card} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Post = (props) => {
-  console.log(
-    "post 화면의 props 입니다.",
-    props, props.post_lists.category
-  );
+  // console.log(
+  //   "post 화면의 props 입니다.",
+  //   props, props.post_lists.category
+  // );
 
   const p = props.post_lists
 

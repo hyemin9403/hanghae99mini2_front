@@ -22,7 +22,7 @@ const Signup = () => {
 
     console.log(id,"의 중복확인 요청을 dispatch 했습니다.");
 
-    // dispatch(userActions.checkIdM(id, email, password));
+    dispatch(userActions.checkIdM(id, email, password));
   }
 
   const checkEmail = () => {
@@ -33,7 +33,7 @@ const Signup = () => {
 
     console.log(email,"의 중복확인 요청을 dispatch 했습니다.");
 
-    // dispatch(userActions.checkEmailM(email));
+    dispatch(userActions.checkEmailM(email));
   }
 
   const signup = (e) => {
@@ -49,7 +49,7 @@ const Signup = () => {
 
     console.log(id, email, password, "의 회원가입 요청을 dispatch 했습니다.");
 
-    // dispatch(userActions.signupM(id, email, password));
+    dispatch(userActions.signupM(id, email, password));
   };
 
 

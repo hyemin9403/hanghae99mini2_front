@@ -1,9 +1,25 @@
 import React from "react";
+import {useDispatch} from "react-redux"
 import { Container, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Grid from "../elements/Grid";
 
-const PostDetail = () => {
+import {actionCreators as postActions} from "../redux/modules/post";
+
+const PostDetail = (props) => {
+  const dispatch = useDispatch();
+
+  
+  const id = props.match.params.id;
+
+  
+
+
+  const deletePost = (id) => {
+    console.log(id);
+    dispatch(postActions.deletePostM(2));
+  }
+
   return (
     <Container style={{ width: "900px" }}>
       <div
@@ -58,6 +74,8 @@ const PostDetail = () => {
             2022년 02월 12일 22시 10분
           </p>
         </div>
+        <button style={{marginLeft: "auto"}}>수정하기</button>
+        <button onClick={deletePost} style={{marginLeft: "auto"}}>삭제하기</button>
         <button style={{ marginLeft: "auto" }}>참여하기</button>
       </div>
       <hr style={{ marginBottom: "50px" }} />

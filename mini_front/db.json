@@ -29,6 +29,76 @@
       "memberNum": 10,
       "currentMemberNum": 2,
       "createdAt": "2022-02-10 17:00"
+    },
+    {
+      "id": 4,
+      "category": "서핑",
+      "name": "서핑스터디",
+      "content": "서핑해요",
+      "recruitState": "모집중",
+      "memberNum": 10,
+      "currentMemberNum": 2,
+      "createdAt": "2022-02-10 17:00"
+    },
+    {
+      "id": 5,
+      "category": "독서",
+      "name": "독서토론",
+      "content": "독서해요",
+      "recruitState": "모집중",
+      "memberNum": 10,
+      "currentMemberNum": 2,
+      "createdAt": "2022-02-10 17:00"
+    },
+    {
+      "id": 6,
+      "categoy": "CSS",
+      "name": "CSS스터디",
+      "content": "CSS해요",
+      "recruitState": "모집중",
+      "memberNum": 10,
+      "currentMemberNum": 2,
+      "createdAt": "2022-02-10 17:00"
+    },
+    {
+      "id": 7,
+      "category": "ABC",
+      "name": "ABC스터디",
+      "content": "ABC스터디해요",
+      "recruitState": "모집중",
+      "memberNum": 10,
+      "currentMemberNum": 2,
+      "createdAt": "2022-02-10 17:00"
+    },
+    {
+      "id": 8,
+      "category": "가나다",
+      "name": "가나다스터디",
+      "content": "가나다스터디해요",
+      "recruitState": "모집중",
+      "memberNum": 10,
+      "currentMemberNum": 2,
+      "createdAt": "2022-02-10 17:00"
+    },
+    {
+      "id": 9,
+      "category": "동해물과",
+      "name": "백두산이",
+      "content": "마르고",
+      "recruitState": "모집중",
+      "memberNum": 10,
+      "currentMemberNum": 2,
+      "createdAt": "2022-02-10 17:00"
+    },
+    {
+      "id": 10,
+      "category": "남산위에",
+      "name": "저소나무",
+      "content": "철갑",
+      "recruitState": "모집중",
+      "memberNum": 10,
+      "currentMemberNum": 2,
+      "createdAt": "2022-02-10 17:00"
     }
   ],
   "login": [
@@ -39,6 +109,29 @@
   "profile": [
     {
       "name": "typicode"
+    }
+  ],
+  "write": [
+    {
+      "id": 1,
+      "category": "Java",
+      "name": "sfsdfsfsdf",
+      "content": "하하호호",
+      "memberNum": "2"
+    },
+    {
+      "id": 4,
+      "category": "Java",
+      "name": "sfsdfsfsdf",
+      "content": "하하호호",
+      "memberNum": "2"
+    },
+    {
+      "id": 5,
+      "category": "Java",
+      "name": "sfsdfsfsdf",
+      "content": "하하호호",
+      "memberNum": "2"
     }
   ]
 }

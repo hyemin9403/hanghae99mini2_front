@@ -4,9 +4,9 @@ import { Route } from "react-router-dom";
 import { history } from "../redux/configureStore";
 import { ConnectedRouter } from "connected-react-router";
 
-import Header from "../components/Header"
-import Main from "../pages/Main"
-import Login from "../pages/Login"
+import Header from "../components/Header";
+import Main from "../pages/Main";
+import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import PostWrite from "../pages/PostWrite";
 import PostDetail from "../pages/PostDetail";
