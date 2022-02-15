@@ -35,14 +35,14 @@ const Post = (props) => {
   );
 };
 
-Post.defaultProps = {
-  id: "1",
-  category: "영어",
-  name: "영진",
-  content: "공부합시다",
-  recruitState: "모집중",
-  memberNum: 2,
-  currentMemberNum: 1,
-  createdAt: "2020-03-02 10:22:22",
-};
+// Post.defaultProps = {
+//   id: "1",
+//   category: "영어",
+//   name: "영진",
+//   content: "공부합시다",
+//   recruitState: "모집중",
+//   memberNum: 2,
+//   currentMemberNum: 1,
+//   createdAt: "2020-03-02 10:22:22",
+// };
 export default Post;

@@ -25,8 +25,8 @@ const PostWrite = (props) => {
 
   const post_id = props.match.params.id
 
-  const editPost = () => {
-    console.log("클릭됨");
+  const editPost = (post_id) => {
+    console.log(post_id);
     dispatch(postActions.editPostM(post_id, {category: category, name: name, content: content, memberNum: memberNum}));
   }
 

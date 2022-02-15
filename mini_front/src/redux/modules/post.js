@@ -2,6 +2,8 @@
 import { createAction, handleActions } from "redux-actions";
 import moment from "moment";
 import axios from "axios";
+import instance from "../../shared/request";
+
 
 // action type
 const LOAD_POST = "LOAD_POST";
@@ -29,9 +31,9 @@ const initialState = {
   const loadPostM = () => async (dispatch, getState) => {
     console.log("loadPostFB 미들웨어에서 데이터를 받아옵니다.");
 
-    axios
-    .get("http://localhost:3003/boards")
-    // .get("http://3.38.178.109/boards")
+    instance
+    // .get("http://localhost:3003/boards")
+    .get("http://3.38.178.109/boards")
     .then((res) => {
       // console.log(res.data);  
       
@@ -78,23 +80,23 @@ const initialState = {
     console.log("editpost 요청이 잘 왔습니다.")
     console.log(post_id)
 
-    const _post_idx = getState().write.list.findIndex((p) => p.id === write_id);
-    const _post = getState().post.list[_post_idx];
+    // const _post_idx = getState().write.list.findIndex((p) => p.id === write_id);
+    // const _post = getState().post.list[_post_idx];
 
-    console.log(_post_idx)
+    // console.log(_post_idx)
 
-    axios.put(`http://localhost:3003/write/${_post}` , {
-      name: "Hello",
-      category: "haha",
-      content: "contents.content",
-      memberNum: 3,
-    })
-    .then((res) => {
-      console.log("edit 성공했다.")
-    })
-    .catch((err) => {
-      console.log(err);
-    })
+    // axios.put(`http://localhost:3003/write/${_post}` , {
+    //   name: "Hello",
+    //   category: "haha",
+    //   content: "contents.content",
+    //   memberNum: 3,
+    // })
+    // .then((res) => {
+    //   console.log("edit 성공했다.")
+    // })
+    // .catch((err) => {
+    //   console.log(err);
+    // })
 
 }
 
@@ -102,10 +104,15 @@ const initialState = {
  const addPostM = (contents) => async (dispatch, getState) => {
     console.log("axios post 요청을 위한 postPostDB에서 받았습니다");
     console.log("contents", contents);
+
+    const user = getState().user
+    // const uid = user.user.uid
+    const _username = localStorage.getItem("username");
+
+    console.log("state", user, user.user.uid, "로컬스토리지",_username)
   
-    axios
-      .post("http://localhost:3003/write/", {
-        id: 5,
+    instance
+      .post(`http://3.38.178.109/board/write/${user.user.uid}`, {
         category: contents.category,
         name: contents.name,
         content: contents.content,
@@ -120,11 +127,31 @@ const initialState = {
       });
   };
 
+  // const addPostM = (contents) => async (dispatch, getState) => {
+  //   console.log("axios post 요청을 위한 postPostDB에서 받았습니다");
+  //   console.log("contents", contents);
+  
+  //   instance
+  //     .post("http://3.38.178.109/board/write", {
+  //       category: contents.category,
+  //       name: contents.name,
+  //       content: contents.content,
+  //       memberNum: contents.memberNum,
+  //     })
+  //     .then((res) => {
+  //       console.log("제대로 들어갔다.");
+  //       console.log(res);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
   const deletePostM = (post_id) => async (dispatch, getState,{history}) =>{
     console.log("axios delete 요청을 받았습니다.",post_id)
 
     axios
-    .delete(`http://localhost:3003/write/${post_id}`)
+    .delete(`http://3.38.178.109/board/${post_id}/delete`)
     .then((res) =>{
       dispatch(deletePost(post_id));
       console.log("삭제되었음")

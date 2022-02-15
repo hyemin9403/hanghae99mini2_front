@@ -18,7 +18,7 @@ const Recent = (props) => {
                            {p.category}
                         </Card.Title>
                         <Card.Text>
-                        {p.content}{p.name} 
+                        {p.content}{p.name}
                         </Card.Text>
                         <span>
                         {p.name}
