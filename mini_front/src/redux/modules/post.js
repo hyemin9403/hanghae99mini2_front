@@ -50,13 +50,21 @@ const initialState = {
     });
   };
 
-const editPostM = () => async(post_id = null, post = {}) => {
-  console.log("edit를 위한 요청을 받았습니다.")
-  axios.post(`http://3.38.178.109/board/${post_id}/update`)
-  // const _post_idx = getState().post.list.findIndex((p) => p.id === post_id);
-  // const _post = getState().post.list[_post_idx];
+  const editPostM = (contents, post_id = null, post ={}) => async(dispatch, getState) => {
+    console.log("editpost 요청이 잘 왔습니다.")
+    axios.put(`http://3.38.178.109//board/${post_id}/update` , {
+      name: contents.name,
+      category: contents.category,
+      content: contents.content,
+      memberNum: contents.memberNum,
+    })
+    .then((res) => {
+      console.log("edit 들어왔다.")
+    })
+    .catch((err) => {
+      console.log(err);
+    })
 
-  // console.log(_post)
 }
 
 
