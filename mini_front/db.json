@@ -113,13 +113,6 @@
   ],
   "write": [
     {
-      "id": 1,
-      "category": "Java",
-      "name": "sfsdfsfsdf",
-      "content": "하하호호",
-      "memberNum": "2"
-    },
-    {
       "id": 4,
       "category": "Java",
       "name": "sfsdfsfsdf",
@@ -128,10 +121,10 @@
     },
     {
       "id": 5,
-      "category": "Java",
-      "name": "sfsdfsfsdf",
-      "content": "하하호호",
-      "memberNum": "2"
+      "category": "React",
+      "name": "ttttt",
+      "content": "tttt",
+      "memberNum": "4"
     }
   ]
 }

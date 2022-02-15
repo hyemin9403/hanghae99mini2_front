@@ -17,7 +17,7 @@ const Signup = () => {
   const checkId = () => {
     if (id === "") {
       console.log("공란입니다!")
-      return;
+      return
     }
 
     console.log(id,"의 중복확인 요청을 dispatch 했습니다.");

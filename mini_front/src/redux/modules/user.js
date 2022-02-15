@@ -124,7 +124,7 @@ const loginCheckM = () => {
 export default handleActions(
     {
       [LOGIN]: (state, action) => {
-        console.log("setUser 리듀서로 도착했습니다", state, action.payload);
+        // console.log("setUser 리듀서로 도착했습니다", state, action.payload);
         state.user = action.payload.user;
         state.is_login = true;
         console.log("setUser 리듀서로 적용 완료", state, action.payload);

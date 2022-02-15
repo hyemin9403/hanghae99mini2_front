@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react";
 import "../shared/App.css"
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
+import { Container} from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
 import { actionCreators as postActions } from "../redux/modules/post";
@@ -55,60 +57,38 @@ const PostWrite = (props) => {
 
   return (
     <>
-      <div
-        style={{
-          height: "300px",
-          display: "flex",
-          flexDirection: "column",
-          alignItmes: "center",
-          justifyContent: "center",
-        }}
-      >
+    <Container style={{width: "550px"}}>
+      <div className="writeTop">
         <h1>네가스터디</h1>
         <h3>다양한 스터디를 함께 모집해봐요</h3>
       </div>
-      <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            height: "150px",
-          }}
-        >
-          <h1
-            style={{
-              textAlign: "left",
-            }}
-          >
+      {/* category */}
+      <div className="studyCategory">
+          <h1 style={{textAlign: "left"}}>
             스터디 주제
           </h1>
-          {/* category */}
-          <div
-            style={{
-              display: "flex",
-            }}
-          >
-            <ButtonA color={clicked}
+          <div style={{ display: "flex"}}>
+            <ButtonA
             id="1"
             value={"Java"}
-              style={{ width: "100px", height: "40px", marginRight: "10px" }}
+              style={{ marginRight: "10px" }}
               onClick={categorySelect}
               onChange={handleChangeColor}
             >
               Java
             </ButtonA>
-            <ButtonA color={clicked}
+            <ButtonA 
             id="2"
             value={"React"}
-              style={{ width: "100px", height: "40px", marginRight: "10px" }}
+              style={{ marginRight: "10px" }}
               onClick={(e) => setCategory(e.target.value)}
               onChange={handleChangeColor}
             >
               React
             </ButtonA>
-            <ButtonA color={clicked}
+            <ButtonA
             id="3"
             value={"Python"}
-              style={{ width: "100px", height: "40px" }}
               onClick={(e) => setCategory(e.target.value)}
               onChange={handleChangeColor}
             >
@@ -125,16 +105,15 @@ const PostWrite = (props) => {
       >
         <h1
           style={{
-            marginLeft: "50px",
-            textAlign: "left",
+            marginLeft: "30px",
           }}
         >
           모집인원
         </h1>
         <input
           style={{
-            marginLeft: "50px",
-            width: "200px",
+            marginLeft: "30px",
+            width: "20vh",
           }}
           type="number"
           name="number_select"
@@ -149,28 +128,24 @@ const PostWrite = (props) => {
       <div
         style={{ display: "flex", flexDirection: "column", height: "150px" }}
       >
-        <h1
-          style={{
-            marginLeft: "50px",
-            textAlign: "left",
-          }}
-        >
+        <h1 style={{marginLeft: "30px"}}>
           제목
         </h1>
-        <input style={{ marginLeft: "50px", width: "400px" }} type="text"
+        <input 
+          style={{ marginLeft: "30px", width: "50vh" }} 
+          type="text"
           onChange={(e) => {
             setName(e.target.value)
           }}
         />
       </div>
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <h1 style={{ marginLeft: "50px", textAlign: "left" }}>내용</h1>
-        <input
+        <h1 style={{ marginLeft: "30px"}}>내용</h1>
+        <input 
           style={{
-            marginLeft: "50px",
-            width: "800px",
-            height: "500px",
-            // textAlignVertical: "top",
+            marginLeft: "30px",
+            width: "80vh",
+            height: "80vh",
           }}
           type="text"
           onChange={(e) => {
@@ -178,27 +153,32 @@ const PostWrite = (props) => {
           }}
         />
       </div>
-      <button
-      style={{ width: "100px", height: "40px", marginRight: "10px" }}
+      <div style={{display: "flex", margin: "20px 0px 0px 30px", }}>
+      <ButtonA
+      style={{ marginRight: "10px" }}
         onClick={addPost}
         text="저장하기"
-        width="200px"
-        margin="20px"
-      ></button>
-      <button
-      style={{ width: "100px", height: "40px", marginRight: "10px" }}
+      >
+        저장하기
+      </ButtonA>
+      <ButtonA
         onClick={editPost}
         text="수정하기"
-        width="200px"
-        margin="20px"
-      >수정하기</button>
+      >
+        수정하기
+      </ButtonA>
+      </div>
+      </Container>
     </>
   );
 };
 
 const ButtonA = styled.button`
-  background-color: ${props => props.color};
+  background-color: gray;
+  
   color: white;
+  width: 100px; 
+  height: 40px; 
 `;
 
 export default PostWrite;
