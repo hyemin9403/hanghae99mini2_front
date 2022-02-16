@@ -113,6 +113,13 @@
   ],
   "write": [
     {
+      "id": 1,
+      "category": "Java",
+      "name": "11111111",
+      "content": "11111111",
+      "memberNum": "11111111"
+    },
+    {
       "id": 2,
       "category": "Java",
       "name": "22222222",
@@ -139,6 +146,45 @@
       "name": "55555555",
       "content": "55555555",
       "memberNum": "55555555"
+    },
+    {
+      "category": "React",
+      "name": "테스트입니디ㅏ",
+      "content": "테스트에요",
+      "memberNum": "4",
+      "id": 6
+    }
+  ],
+  "java": [
+    {
+      "id": 1,
+      "category": "영어",
+      "name": "토익스터디",
+      "content": "스터디해요",
+      "recruitState": "모집중",
+      "memberNum": 4,
+      "currentMemberNum": 2,
+      "createdAt": "2022-02-11 17:00"
+    },
+    {
+      "id": 2,
+      "category": "수학",
+      "name": "토익스터디",
+      "content": "스터디해요",
+      "recruitState": "모집중",
+      "memberNum": 4,
+      "currentMemberNum": 2,
+      "createdAt": "2022-02-11 17:00"
+    },
+    {
+      "id": 3,
+      "category": "과학",
+      "name": "토익스터디",
+      "content": "스터디해요",
+      "recruitState": "모집중",
+      "memberNum": 4,
+      "currentMemberNum": 2,
+      "createdAt": "2022-02-11 17:00"
     }
   ]
 }

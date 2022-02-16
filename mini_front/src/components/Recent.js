@@ -1,22 +1,21 @@
 import React from 'react';
 import {Button, Alert, Breadcrumb, Card, Form, Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Grid } from '../elements';
 
 const Recent = (props) => {
       const p = props.post_lists
     return (
         <>
-            <Container>
-                <Form>
-                    <Form.Label></Form.Label>
-                </Form>
+            <Grid width="380px" height="380px">
                 <Row>
                     <Col>
                     <Card >
                         <Card.Body>
-                        <Card.Title>
+                        <div  className="Gothic-900">
                            {p.category}
-                        </Card.Title>
+                        </div>
+                        <hr></hr>
                         <Card.Text>
                         {p.content}{p.name}
                         </Card.Text>
@@ -27,7 +26,7 @@ const Recent = (props) => {
                     </Card>
                     </Col>
                 </Row>
-            </Container>
+            </Grid>
             </>
     );
 };

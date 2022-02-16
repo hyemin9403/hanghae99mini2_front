@@ -1,33 +1,41 @@
 import React from "react";
 import {Card} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Grid } from "../elements";
 
 const Post = (props) => {
-  // console.log(
-  //   "post 화면의 props 입니다.",
-  //   props, props.post_lists.category
-  // );
 
-  const p = props.post_lists
+  const p = props.post_category
 
   return (
     <>
-      <Card>
-        <Card.Header>
-          <h1> {p.category}</h1>
-          <p>
-            {p.createdAt} {p.name}
-          </p>
-        </Card.Header>
-        <p>{p.content}</p>
+      <Card style={{borderRadius:"15px", boxShadow:"0px 0px 5px 5px #a9a9a9"}}>
+        <Grid padding="20px">
+          <div className="Gothic-900" style={{fontSize:"30px", padding:"0px 30px 0px 0px "}}>
+          {p.category}
+          <span className="Gothic-400" style={{color:"#219f94", fontSize:"16px", float:"right", paddingTop:"35px"}}>{p.name}</span>
+          </div>
+          <hr style={{margin:"4px"}}></hr>
+          <div className="Gothic-200" style={{fontSize:"12px", marginBottom:"10px"}}>
+            {p.createdAt}
+          </div>
+        <div className="Gothic-900" style={{fontSize:"35px"}}>{p.content}</div>
+        </Grid>
         <Card.Body>
           <blockquote className="blockquote mb-0">
-            <footer className="blockquote-footer">
+            <Grid is_flex>
+              <div style={{ width:"150px",marginRight:"20px", borderRadius:"15px", textAlign:"center",backgroundColor:"#219f94"}}>
               {p.recruitState}{" "}
+              </div>
+              <div className="Gothic-600">
+              모집인원 : {p.memberNum}명
+              {/* {p.currentMemberNum} */}
+              </div>
+            </Grid>
+            
               <cite title="Source Title">
-                모집인원 {p.currentMemberNum}/{p.memberNum}
+                
               </cite>
-            </footer>
           </blockquote>
         </Card.Body>
       </Card>
@@ -35,14 +43,4 @@ const Post = (props) => {
   );
 };
 
-// Post.defaultProps = {
-//   id: "1",
-//   category: "영어",
-//   name: "영진",
-//   content: "공부합시다",
-//   recruitState: "모집중",
-//   memberNum: 2,
-//   currentMemberNum: 1,
-//   createdAt: "2020-03-02 10:22:22",
-// };
 export default Post;

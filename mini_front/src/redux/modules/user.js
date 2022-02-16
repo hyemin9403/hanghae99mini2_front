@@ -4,12 +4,13 @@ import axios from "axios";
 
 import instance from "../../shared/request";
 
-
 const LOGIN = "LOGIN";
 const LOG_OUT = "LOG_OUT";
+const USER_INFO = "USER_INFO"
 
 const setLogin = createAction(LOGIN, (user) => ({ user }));
 const logOut = createAction(LOG_OUT, (user) => ({ user }));
+const setUserInfo = createAction(USER_INFO, (userinfo) => ({userinfo}))
 
 // initialState
 const initialState = {
@@ -20,7 +21,7 @@ const initialState = {
 const signupM =
   (username, email, password) =>
   async (dispatch, getState, { history }) => {
-    console.log("회원가입 POST 요청을 signupM에서 받았습니다");
+    
     axios
       .post("http://3.38.178.109/user/signup", {
         username: username,
@@ -38,7 +39,6 @@ const signupM =
   };
 
 const checkIdM = (username) => async (dispatch, getState) => {
-  console.log("중복확인 POST 요청을 checkIdM에서 받았습니다");
   axios
     .get(`http://3.38.178.109/user/signup/checkUsername/${username}`, {
       username: username,
@@ -58,7 +58,6 @@ const checkIdM = (username) => async (dispatch, getState) => {
 };
 
 const checkEmailM = (email) => async (dispatch, getState) => {
-  console.log("중복확인 POST 요청을 checkEmailM에서 받았습니다");
   axios
     .get(`http://3.38.178.109/user/signup/checkEmail/${email}`, {
       email: email,
@@ -76,8 +75,7 @@ const checkEmailM = (email) => async (dispatch, getState) => {
     });
 };
 
-const loginM = (username, password) => async (dispatch, getState) => {
-  console.log("로그인 POST 요청을 loginM에서 받았습니다");
+const loginM = (username, password) => async (dispatch, getState, {history}) => {
   axios
     .post(
       "http://3.38.178.109/user/login",
@@ -90,20 +88,20 @@ const loginM = (username, password) => async (dispatch, getState) => {
     .then((res) => {
       console.log("res", res);
 
+      const _auth = res.headers.authorization;
+      const _cookie = _auth.split(" ")[1];
+
       // setCookie = (name, value, exp)
-      setCookie("token", res.data.token, 7);
-      localStorage.setItem("username", username);
-      localStorage.setItem("token", res.data.token);
-      // token이 필요한 API 요청 시 header Authorization에 token 담아서 보내기
+      setCookie("token", _cookie, 7);
+      localStorage.setItem("token", _cookie);
 
       dispatch(
         setLogin({
           username: username,
-          token: res.data.token,
-          uid:res.data.userId,
         })
       );
-      // history.replace("/");
+      history.replace("/")
+      window.location.reload()
     })
     .catch((err) => {
       console.log(err);
@@ -113,7 +111,6 @@ const loginM = (username, password) => async (dispatch, getState) => {
 export const logoutM =
   () =>
   async (dispatch, getState, { history }) => {
-    console.log("로그아웃 POST 요청을 loginM에서 받았습니다");
     axios
       .post("http://3.38.178.109/user/logout")
       .then((res) => {
@@ -129,20 +126,41 @@ export const logoutM =
       });
   };
 
+  // 수정 필요
 const loginCheckM = () => {
   return function (dispatch, getState, { history }) {
-    const userId = localStorage.getItem("username");
+    const user = getState().user
+    const username = user.username
     const tokenCheck = document.cookie;
     if (tokenCheck) {
       dispatch(
         setLogin({
-          username: userId,
+          username: username,
         })
       );
     } else {
       dispatch(logOut());
     }
   };
+};
+
+const userinfoM = () => async (dispatch, getState) => {
+  instance
+    .get("http://3.38.178.109/userinfo")
+    .then((res) => {
+      console.log("user값을 불러왔어요",res);
+      dispatch(
+        setUserInfo({
+          userId:res.data.userId,
+          username: res.data.username,
+          registerStudyList: res.data.registerStudyList,
+        })
+      );
+    })
+    .catch((err) => {
+      window.alert("user값을 불러오지 못했습니다");
+      console.log(err);
+    });
 };
 
 export default handleActions(
@@ -161,6 +179,12 @@ export default handleActions(
       state.is_login = false;
       return state;
     },
+
+    [USER_INFO]: (state, action) => {
+      console.log("setUserInfo 리듀서로 도착했습니다", state, action.payload)
+      state.user = action.payload.user
+      return state;
+    }
   },
   initialState
 );
@@ -172,6 +196,7 @@ const actionCreators = {
   loginM,
   logoutM,
   loginCheckM,
+  userinfoM,
 };
 
 export { actionCreators };

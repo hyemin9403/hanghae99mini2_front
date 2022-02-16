@@ -5,9 +5,9 @@ import { history } from "../redux/configureStore";
 import { ConnectedRouter } from "connected-react-router";
 
 import Header from "../components/Header";
-import Main from "../pages/Main";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
+import PostList from "../components/PostList";
 import PostWrite from "../pages/PostWrite";
 import PostDetail from "../pages/PostDetail";
 
@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <Header />
       <ConnectedRouter history={history}>
-        <Route path="/" exact component={Main} />
+        <Route path="/" exact component={PostList} />
         <Route path="/login" exact component={Login} />
         <Route path="/signup" exact component={Signup} />
         <Route path="/write" exact component={PostWrite} />
