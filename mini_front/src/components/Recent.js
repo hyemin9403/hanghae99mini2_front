@@ -7,25 +7,27 @@ const Recent = (props) => {
       const p = props.post_lists
     return (
         <>
-            <Grid width="380px" height="380px">
-                <Row>
-                    <Col>
-                    <Card >
-                        <Card.Body>
-                        <div  className="Gothic-900">
+            <Grid borderRadius="10px" width="300px" height="200px" bg="white">
+                <Card.Body>
+                        <Grid fontWeight="900" fontSize="32px">
                            {p.category}
-                        </div>
+                        </Grid>
                         <hr></hr>
-                        <Card.Text>
-                        {p.content}{p.name}
-                        </Card.Text>
-                        <span>
+                        <Grid
+                        width="280px"
+                        height="50px"
+                        fontWeight="900"
+                        fontSize="32px"
+                        textOverflow="ellipsis"
+                        overflow="hidden"
+                        whiteSpace="nowrap"
+                        >
+                        {p.content}
+                        </Grid>
+                        <Grid margin="10px 0px 0px 0px" color="#219f94" fontWeight="400" fontSize="16px">
                         {p.name}
-                        </span>
+                        </Grid>
                         </Card.Body>
-                    </Card>
-                    </Col>
-                </Row>
             </Grid>
             </>
     );

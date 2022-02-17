@@ -16,7 +16,7 @@ const Signup = () => {
 
   const checkId = () => {
     if (id === "") {
-      console.log("공란입니다!")
+      window.alert("공란입니다!")
       return
     }
 
@@ -27,7 +27,7 @@ const Signup = () => {
 
   const checkEmail = () => {
     if (email === "") {
-      console.log("공란입니다!")
+      window.alert("공란입니다!")
       return;
     }
 
@@ -40,10 +40,10 @@ const Signup = () => {
     e.preventDefault()
 
     if (id === "" || email === "" || password === "" || checkPassword === "") {
-      console.log("공란입니다!")
+      window.alert("공란입니다!")
       return;
     } else if (password !== checkPassword){
-      console.log("패스워드가 다릅니다.")
+      window.alert("패스워드가 다릅니다.")
       return;
     }
 

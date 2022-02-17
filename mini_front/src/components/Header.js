@@ -14,10 +14,12 @@ const Header = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const is_login = useSelector((state) => state.user.is_login);
+  console.log("Header", user, is_login);
 
   React.useEffect(async () => {
     dispatch(userActions.loginCheckM());
-    console.log("유저 로그인 체크", user.is_login);
+    dispatch(userActions.userinfoM());
+    // console.log("유저 로그인 체크", user.is_login, user);
   }, []);
 
   const logout = () => {
@@ -31,12 +33,24 @@ const Header = () => {
       <>
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
           <Container>
-            <Navbar.Brand href="/">네가스터디</Navbar.Brand>
+            <Navbar.Brand
+              onClick={() => {
+                history.push("/");
+              }}
+            >
+              네가스터디
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto"></Nav>
               <Nav>
-                <Nav.Link href="/">내정보</Nav.Link>
+                <Nav.Link
+                  onClick={() => {
+                    history.push("/");
+                  }}
+                >
+                  내정보
+                </Nav.Link>
                 <Nav.Link eventKey={2} href="" onClick={logout}>
                   로그아웃
                 </Nav.Link>
@@ -52,7 +66,13 @@ const Header = () => {
     <>
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
         <Container>
-          <Navbar.Brand href="/">네가스터디</Navbar.Brand>
+          <Navbar.Brand
+            onClick={() => {
+              history.push("/");
+            }}
+          >
+            네가스터디
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto"></Nav>

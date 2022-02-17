@@ -51,7 +51,7 @@ const PostWrite = (props) => {
 
   return (
     <>
-      <Container style={{ width: "550px" }}>
+      <Container style={{ width: "950px" }}>
         <div className="writeTop">
           <h1>네가스터디</h1>
           <h3>다양한 스터디를 함께 모집해봐요</h3>
@@ -60,29 +60,30 @@ const PostWrite = (props) => {
         <div className="studyCategory">
           <h1 style={{ textAlign: "left" }}>스터디 주제</h1>
           <div style={{ display: "flex" }}>
-            <ButtonA
+            <button
               id="1"
               value={"Java"}
-              style={{ marginRight: "10px" }}
+              className="categoryJava"
               onClick={categorySelect}
             >
               Java
-            </ButtonA>
-            <ButtonA
+            </button>
+            <button
               id="2"
               value={"React"}
-              style={{ marginRight: "10px" }}
+              className="categoryReact"
               onClick={(e) => setCategory(e.target.value)}
             >
               React
-            </ButtonA>
-            <ButtonA
+            </button>
+            <button
               id="3"
               value={"Python"}
+              className="categoryPython"
               onClick={(e) => setCategory(e.target.value)}
             >
               Python
-            </ButtonA>
+            </button>
           </div>
         </div>
         <div
@@ -90,7 +91,11 @@ const PostWrite = (props) => {
         >
           <h1 style={{ marginLeft: "30px" }}>모집인원</h1>
           <input
-            style={{ marginLeft: "30px", width: "20vh" }}
+            style={{ marginLeft: "30px",
+            padding: "20px",
+            width: "30%",
+            border: "1px solid #9C9C9C",
+            borderRadius: "10px", }}
             type="number"
             name="number_select"
             min="1"
@@ -107,7 +112,11 @@ const PostWrite = (props) => {
         >
           <h1 style={{ marginLeft: "30px" }}>제목</h1>
           <input
-            style={{ marginLeft: "30px", width: "50vh" }}
+            style={{ marginLeft: "30px",
+            padding: "20px",
+            width: "80%",
+            border: "1px solid #9C9C9C",
+            borderRadius: "10px", }}
             type="text"
             onChange={(e) => {
               setName(e.target.value);
@@ -117,8 +126,13 @@ const PostWrite = (props) => {
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <h1 style={{ marginLeft: "30px" }}>내용</h1>
-          <input
-            style={{ marginLeft: "30px", width: "80vh", height: "80vh" }}
+          <textarea
+            style={{ padding: "20px",
+            marginLeft: "30px",
+            width: "80%",
+            height: "80vh",
+            border: "1px solid #9C9C9C",
+            borderRadius: "10px", }}
             type="text"
             onChange={(e) => {
               setContent(e.target.value);
@@ -128,13 +142,13 @@ const PostWrite = (props) => {
         </div>
         <div style={{ display: "flex", margin: "20px 0px 0px 30px" }}>
           {is_edit ? (
-            <ButtonA onClick={editPost} text="수정하기">
+            <button className="editBttn" onClick={editPost} text="수정하기">
               수정하기
-            </ButtonA>
+            </button>
           ) : (
-            <ButtonA onClick={addPost} text="저장하기">
+            <button className="saveBttn" onClick={addPost} text="저장하기">
               저장하기
-            </ButtonA>
+            </button>
           )}
         </div>
       </Container>

@@ -69,9 +69,9 @@ const categoryM = (category) => async (dispatch, getState) => {
 const editPostM =
   (post_id, _contents) =>
   async (dispatch, getState, { history }) => {
-    console.log(post_id,_contents)
+    console.log(post_id, _contents);
 
-    axios
+    instance
       .put(`http://3.38.178.109/board/${post_id}/update`, _contents)
       .then((res) => {
         console.log(res);
@@ -84,35 +84,38 @@ const editPostM =
       });
   };
 
-const addPostM = (contents) => async (dispatch, getState) => {
-  console.log(contents)
+const addPostM =
+  (contents) =>
+  async (dispatch, getState, { history }) => {
+    console.log(contents);
 
-  const addData = {
-    category: contents.category,
-    name: contents.name,
-    content: contents.content,
-    memberNum: contents.memberNum,
+    const addData = {
+      category: contents.category,
+      name: contents.name,
+      content: contents.content,
+      memberNum: contents.memberNum,
+    };
+    // 테스트
+    instance
+      .post(`http://3.38.178.109/board/write`, contents)
+      .then((res) => {
+        dispatch(addPost(contents));
+        history.push("/");
+        window.location.reload();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
-// 테스트
-  instance
-    .post(`http://3.38.178.109/board/write`, contents)
-    .then((res) => {
-      dispatch(addPost(contents));
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
 
 const deletePostM =
   (post_id) =>
   async (dispatch, getState, { history }) => {
-
     instance
       .delete(`http://3.38.178.109/board/${post_id}/delete`)
       .then((res) => {
         dispatch(deletePost(post_id));
-        history.replace("/")
+        history.replace("/");
       })
       .catch((err) => {
         window.alert("삭제가 되지 않았어요!");
@@ -120,19 +123,42 @@ const deletePostM =
       });
   };
 
-  const joinPostM = (post_id) => async (dispatch, getState) => {
+const joinPostM =
+  (post_id) =>
+  async (dispatch, getState, { history }) => {
     console.log("참여하기 버튼을 눌렀습니다", post_id);
-  
+
     instance
       .put(`http://3.38.178.109/board/${post_id}/register`)
       .then((res) => {
         console.log("참여완료");
+        window.alert("참여가 완료되었습니다.");
+        history.push("/");
+        window.location.reload();
       })
       .catch((err) => {
         window.alert("참여가 되지 않았어요!");
         console.log(err);
       });
   };
+
+  const leavePostM = (post_id) => async(dispatch, getState, {history}) => {
+    console.log("탈퇴하기 버튼을 눌렀습니다", post_id);
+
+    instance
+    .delete(`http://3.38.178.109/board/${post_id}/secession`)
+    .then((res) => {
+      console.log("탈퇴완료");
+      window.alert("탈퇴가 완료되었습니다.");
+      history.push("/");
+      window.location.reload();
+    })
+    .catch((err) => {
+      window.alert("탈퇴가 되지 않았어요!");
+      console.log(err);
+    });
+
+  }
 
 export default handleActions(
   {
@@ -176,7 +202,8 @@ const actionCreators = {
   addPostM,
   deletePostM,
   editPostM,
-  joinPostM
+  joinPostM,
+  leavePostM,
 };
 
 export { actionCreators };

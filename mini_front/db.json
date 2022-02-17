@@ -4,7 +4,7 @@
       "id": 1,
       "category": "영어",
       "name": "토익스터디",
-      "content": "스터디해요",
+      "content": "스터디ㅇㅇㅇㅇㅇㅇㅇ해요",
       "recruitState": "모집중",
       "memberNum": 4,
       "currentMemberNum": 2,
@@ -23,7 +23,7 @@
     {
       "id": 3,
       "category": "요리",
-      "name": "요리스터디",
+      "name": "요리스터디요리스터디요리스터디요리스터디요리스터디요리스터디",
       "content": "스터디해요",
       "recruitState": "모집중",
       "memberNum": 10,
@@ -169,8 +169,8 @@
     {
       "id": 2,
       "category": "수학",
-      "name": "토익스터디",
-      "content": "스터디해요",
+      "name": "토익스ddddddddd터디",
+      "content": "스터dddddddddddddd디해요",
       "recruitState": "모집중",
       "memberNum": 4,
       "currentMemberNum": 2,
